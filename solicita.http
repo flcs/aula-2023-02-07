@@ -1,0 +1,12 @@
+@endereco = http://localhost:3000
+
+
+POST {{endereco}}/solicita  HTTP/1.1
+Content-Type: application/json
+
+{
+    "num1": "3",
+    "num2": "5"
+}
+
+
