@@ -2,14 +2,9 @@
 
 
 GET {{endereco}}/get_simples  HTTP/1.1
+
+###
+POST {{endereco}}/post_simples  HTTP/1.1
 Content-Type: application/json
 
-
-
-POST {{endereco}}/get_simples  HTTP/1.1
-header name: header value
-
-content 
-Content-Type: application/json
-
-
+{}
