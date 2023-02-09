@@ -4,7 +4,9 @@ import { TrabalhoRepo } from "../repository/trabalho-repository";
 export class ClienteSolicitaUsecase {
     constructor(private repo: TrabalhoRepo) {}
 
-    async perform(params: ClienteSolicitaUsecase.Params) : Promise<void> {
+    async perform(params: ClienteSolicitaUsecase.Params) : 
+                Promise<ClienteSolicitaUsecase.Result> {
+                    
         const { id, num1, num2 } = params
         const trabalho = new Trabalho(id, num1, num2)
         trabalho.mudaStatus('solicitado')
@@ -15,6 +17,8 @@ export class ClienteSolicitaUsecase {
         } catch {
             console.log('erro aqui')
         }
+
+        return resultado
     }
 }
 
@@ -24,4 +28,5 @@ export namespace ClienteSolicitaUsecase {
         num1: string
         num2: string
     }
+    export type Result = string
 }

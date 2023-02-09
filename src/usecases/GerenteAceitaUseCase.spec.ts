@@ -1,33 +1,20 @@
 import { Request, Response, response } from "express";
+import { SolicitaController } from "src/controller/solicita-controller";
 import { Trabalho } from "../domain/trabalho";
+import { ClienteSolicitaUsecase } from "./solicitacao-usecase";
 
-interface UseCase<E> {
-    perform(params: any): Promise<void>
-}
 
-class AceitaController {
-    constructor(private usecase: UseCase<Trabalho>) {
-    }
-    async handle (req: Request, resp: Response){
-        resp.status(200)
-    }
-}
+describe('SolicitaUsecase', () => {
+    test('', () => {
+        const repo = jest.fn()
 
-class AceitaUseCaseFake implements UseCase<Trabalho> {
-    perform(params: any): Promise<void> {
-        throw new Error("Method not implemented.");
-    }
+        const sut = new ClienteSolicitaUsecase(repo)
+        const params: ClienteSolicitaUsecase.Params = {
+            id: "1",
+            num1: '20',
+            num2: '30'
 
-}
-
-describe('Gerente aceita solicitação', () => {
-    test('solicitação aceita', () => {
-        const usecase = new AceitaUseCaseFake()
-        const sut = new AceitaController(usecase)
-        const request = {} as Request
-        const response = {} as Response
-
-        sut.handle(request, response)
-        expect(response.status).toBe(200)
+        }
+        expect(sut.perform(params)).toBe('50')
     })
 })
