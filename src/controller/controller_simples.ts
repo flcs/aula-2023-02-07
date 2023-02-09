@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 
+// https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status
 
 function controller_get_simples(req: Request, resp: Response): void {
     console.log('chegou no controller do get')
