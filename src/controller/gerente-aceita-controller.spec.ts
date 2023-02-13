@@ -23,6 +23,17 @@ describe('GerenteAceitaController', () => {
         expect(requestService.getRequests()[0].status).toBe('approved');
       });
 
+      it('should return 400 if request is not found', () => {
+        const res = {
+          status: jest.fn().mockReturnThis(),
+          send: jest.fn().mockReturnValue({})
+        };
+        controller.approveRequest({ params: { id: '2' } } as any, res as any);
+        expect(res.status).toHaveBeenCalledWith(400);
+        expect(res.send).toHaveBeenCalledWith({ message: 'Request not found' });
+      });
+    
+
 });
 
     
