@@ -1,4 +1,4 @@
-export type TiposTrabalho = undefined | 'solicitado' | 'aceito' | 'reservado'
+export type TiposTrabalho = undefined | 'solicitado' | 'aceito' | 'reservado' | 'confirmado'
 
 export class Trabalho {
     id: string
